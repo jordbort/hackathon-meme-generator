@@ -1,9 +1,12 @@
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router'
 
 function CreatePost(props) {
     const [memes, setMemes] = useState([])
     const [selectedMeme, setSelectedMeme] = useState(null)
     // const [form, setForm] = useState()
+
+    const navigate = useNavigate()
 
     const getMemes = async () => {
         try {
@@ -16,12 +19,12 @@ function CreatePost(props) {
         }
     }
 
-    // async function handleSubmit(event) {
-    //     event.preventDefault()
-    //     console.log(selectedMeme)
-    //     setSelectedMeme(event.target.value)
-    // }
-    // console.log(selectedMeme)
+    async function handleSubmit(event) {
+        event.preventDefault()
+        console.log(selectedMeme)
+        // navigate(`/`)
+    }
+    console.log(selectedMeme)
 
     function handleChange(event) {
         // console.log(event.target.value)
@@ -36,18 +39,22 @@ function CreatePost(props) {
         return (
             <>
                 <h2>Create Meme</h2>
-                {/* <form onSubmit={handleSubmit}> */}
-                    {/* <label htmlFor='memes'>Select meme format: </label> */}
-                    <select name='memes' onChange={handleChange}>
-                        {memes.map((meme, idx) => (
-                            <option key={idx} value={meme.url}>{meme.name}</option>
-                        ))}
-                    </select>
-                    {/* <input type='submit' value='Select meme' /> */}
-                {/* </form> */}
+                <form onSubmit={handleSubmit}>
+                <label htmlFor='memes'>Select meme format: </label>
+                <select name='memes' onChange={handleChange}>
+                    {memes.map((meme, idx) => (
+                        <option key={idx} value={meme.url}>{meme.name}</option>
+                    ))}
+                </select>
+                <input type='submit' value='Submit to backend' />
+                </form>
                 <h1>Create meme</h1>
-                <div>
-                    <img src={selectedMeme} alt="" />
+                <div className='meme-editor'>
+                    <div className='meme-container'>
+                        <h1 className='top-text'>Top Text</h1>
+                        <h1 className='bottom-text'>Bottom Text</h1>
+                        <img src={selectedMeme} alt="Selected meme" />
+                    </div>
                 </div>
             </>
         )
