@@ -3,9 +3,6 @@ import { useNavigate } from 'react-router'
 
 function CreatePost(props) {
     const [memes, setMemes] = useState([])
-    // const [selectedMeme, setSelectedMeme] = useState(null)
-    // const [topText, setTopText] = useState("")
-    // const [bottomText, setBottomText] = useState("")
     const [form, setForm] = useState({
         image: "",
         topText: "",
@@ -28,7 +25,20 @@ function CreatePost(props) {
     async function handleSubmit(event) {
         event.preventDefault()
         console.log(`Submitted:`, form)
-        // navigate(`/`)
+        try {
+            const requestOptions = {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(form),
+            }
+            const response = await fetch(`https://intense-forest-10566.herokuapp.com/posts`, requestOptions)
+            navigate("/")
+        }
+        catch (err) {
+            console.error(err)
+        }
     }
     // console.log(selectedMeme)
 
