@@ -1,6 +1,8 @@
 function Header(props) {
     return (
-        <h2>Header</h2>
+        <>
+        <h1> Meme Generator</h1>
+        </>
     )
 }
 
