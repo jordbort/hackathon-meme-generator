@@ -2,6 +2,7 @@ import { useParams } from "react-router"
 import { useState } from 'react'
 import { useEffect } from "react"
 import CreatePost from "../pages/CreatePost"
+import '../index.css'
 
 function Feed(props) {
 
@@ -25,10 +26,18 @@ function Feed(props) {
     },[])
 
     return (
-        <div className="container">
-            
-            <img src={posts.url} />
-        </div>
+        <div className='meme-editor'>
+                    <div className='meme-container'>
+                        {posts.map(post => {
+                            return (
+                                <>
+                                <img src={post.image} />
+                                <h1 className='top-text'>{post.topText}</h1>
+                                </>
+                            )
+                        })}
+                    </div>
+                </div>
     )
 }
 
