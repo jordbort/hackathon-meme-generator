@@ -1,6 +1,11 @@
+import Feed from "../components/Feed"
+import Header from "../components/Header"
+
 function Home(props) {
     return (
-        <h1>Home</h1>
+        <>
+        <Feed />
+        </>
     )
 }
 
