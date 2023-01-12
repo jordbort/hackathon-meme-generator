@@ -8,3 +8,36 @@ body {
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+
+.meme-editor {
+    border: 2px solid black;
+    width: 500px;
+}
+
+.meme-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.meme-editor img {
+    max-width: 100%;
+}
+
+.meme-container h1 {
+    position: absolute;
+    color: white;
+    font-size: 5rem;
+    margin: 4px 0;
+    font-family: 'Impact', sans-serif;
+    text-transform: uppercase;
+    -webkit-text-stroke: 2px black;
+}
+
+.top-text {
+    top: 0;
+}
+
+.bottom-text {
+    bottom: 0;
+}
