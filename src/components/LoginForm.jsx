@@ -1,7 +1,9 @@
-function LoginForm(props) {
-    return (
-        <h2>LoginForm</h2>
-    )
+import React from 'react'
+
+function LoginForm() {
+  return (
+    <div>LoginForm</div>
+  )
 }
 
 export default LoginForm
