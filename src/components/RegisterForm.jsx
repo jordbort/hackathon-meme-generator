@@ -1,9 +1,7 @@
-import React from 'react'
-
-function RegisterForm() {
-  return (
-    <div>RegisterForm</div>
-  )
+function RegisterForm(props) {
+    return (
+        <h2>RegisterForm</h2>
+    )
 }
 
 export default RegisterForm

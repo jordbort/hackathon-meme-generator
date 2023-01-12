@@ -1,9 +1,7 @@
-import React from 'react'
-
-function Feed() {
-  return (
-    <div>Feed</div>
-  )
+function Feed(props) {
+    return (
+        <h2>Feed</h2>
+    )
 }
 
 export default Feed
