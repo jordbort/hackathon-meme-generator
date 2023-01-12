@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 
 function CreatePost(props) {
     const [memes, setMemes] = useState([])
@@ -20,12 +20,14 @@ function CreatePost(props) {
     }, [])
 
     const loaded = () => {
-        return memes.map((meme, idx) => (
-            <div>
-                <Link to={`/create`}><img src={meme.url} /></Link>
-                <h3> {meme.name}</h3>
-            </div>
-        ))
+        return (
+            <h2>Create Meme</h2>            // memes.map((meme, idx) => (
+            //     <div key={idx}>
+            //         <Link to={`/create`}><img src={meme.url} /></Link>
+            //         <h3> {meme.name}</h3>
+            //     </div>
+            // ))
+        )
     }
 
     const loading = () => {
