@@ -1,7 +1,9 @@
+import Feed from "../components/Feed"
+ 
+
 function Home(props) {
     return (
         <>
-        <Header />
         <Feed />
         
         </>
