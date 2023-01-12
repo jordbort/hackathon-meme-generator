@@ -1,9 +1,10 @@
 import Feed from "../components/Feed"
-import Header from "../components/Header"
+import CreatePost from "../pages/CreatePost"
 
 function Home(props) {
     return (
         <>
+        <CreatePost />
         <Feed />
         </>
     )
