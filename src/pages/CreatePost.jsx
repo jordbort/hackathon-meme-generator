@@ -3,8 +3,11 @@ import { useNavigate } from 'react-router'
 
 function CreatePost(props) {
     const [memes, setMemes] = useState([])
-    const [selectedMeme, setSelectedMeme] = useState(null)
-    // const [form, setForm] = useState()
+    const [form, setForm] = useState({
+        image: "",
+        topText: "",
+        bottomText: ""
+    })
 
     const navigate = useNavigate()
 
@@ -21,15 +24,33 @@ function CreatePost(props) {
 
     async function handleSubmit(event) {
         event.preventDefault()
-        console.log(selectedMeme)
-        // navigate(`/`)
+        console.log(`Submitted:`, form)
+        try {
+            const requestOptions = {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(form),
+            }
+            const response = await fetch(`https://intense-forest-10566.herokuapp.com/posts`, requestOptions)
+            navigate("/")
+        }
+        catch (err) {
+            console.error(err)
+        }
     }
-    console.log(selectedMeme)
+    // console.log(selectedMeme)
 
     function handleChange(event) {
-        // console.log(event.target.value)
-        setSelectedMeme(event.target.value)
+        console.log(event.target)
+        const userInput = { ...form }
+        console.log(userInput)
+        userInput[event.target.name] = event.target.value
+        setForm(userInput)
+        // setSelectedMeme(event.target.value)
     }
+    // console.log(form)
 
     useEffect(() => {
         getMemes()
@@ -39,23 +60,29 @@ function CreatePost(props) {
         return (
             <>
                 <h2>Create Meme</h2>
-                <form onSubmit={handleSubmit}>
-                <label htmlFor='memes'>Select meme format: </label>
-                <select name='memes' onChange={handleChange}>
-                    {memes.map((meme, idx) => (
-                        <option key={idx} value={meme.url}>{meme.name}</option>
-                    ))}
-                </select>
-                <input type='submit' value='Submit to backend' />
-                </form>
-                <h1>Create meme</h1>
                 <div className='meme-editor'>
                     <div className='meme-container'>
-                        <h1 className='top-text'>Top Text</h1>
-                        <h1 className='bottom-text'>Bottom Text</h1>
-                        <img src={selectedMeme} alt="Selected meme" />
+                        <h1 className='top-text'>{form.topText}</h1>
+                        <h1 className='bottom-text'>{form.bottomText}</h1>
+                        <img src={form.image} alt="Selected meme" />
                     </div>
                 </div>
+                <form onSubmit={handleSubmit} onChange={handleChange}>
+                    <label htmlFor='image'>Select meme format: </label>
+                    <select name='image'>
+                        {memes.map((meme, idx) => (
+                            <option key={idx} value={meme.url}>{meme.name}</option>
+                        ))}
+                    </select>
+                    <br />
+                    <label htmlFor='topText'>Top text: </label>
+                    <input type='text' name='topText' value={form.topText} />
+                    <br />
+                    <label htmlFor='bottomText'>Bottom text: </label>
+                    <input type='text' name='bottomText' value={form.bottomText} />
+                    <br />
+                    <input type='submit' value='Submit to backend' />
+                </form>
             </>
         )
     }
