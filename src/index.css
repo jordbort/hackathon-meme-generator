@@ -9,6 +9,10 @@ code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
+header img {
+    width: 100%;
+}
+
 .meme-editor {
     border: 2px solid black;
     width: 500px;
