@@ -12,7 +12,7 @@ function Feed(props) {
 
     const getPosts = async () => {
         try {
-            const res = await fetch(`https://intense-forest-10566.herokuapp.com/posts`)
+            const res = await fetch(`https://memegenerator.herokuapp.com/posts`)
             const info = await res.json()
             console.log(info)
             setPosts(info)

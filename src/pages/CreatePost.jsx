@@ -18,13 +18,13 @@ function CreatePost(props) {
             // console.log(info.data)
             setMemes(info.data.memes)
         } catch (error) {
-            console.log(error)
+            console.error(error)
         }
     }
 
     async function handleSubmit(event) {
         event.preventDefault()
-        console.log(`Submitted:`, form)
+        // console.log(`Submitted:`, form)
         try {
             const requestOptions = {
                 method: "POST",
@@ -33,7 +33,7 @@ function CreatePost(props) {
                 },
                 body: JSON.stringify(form),
             }
-            const response = await fetch(`https://intense-forest-10566.herokuapp.com/posts`, requestOptions)
+            const response = await fetch(`https://memegenerator.herokuapp.com/posts`, requestOptions)
             navigate("/")
         }
         catch (err) {
@@ -43,9 +43,9 @@ function CreatePost(props) {
     // console.log(selectedMeme)
 
     function handleChange(event) {
-        console.log(event.target)
+        // console.log(event.target)
         const userInput = { ...form }
-        console.log(userInput)
+        // console.log(userInput)
         userInput[event.target.name] = event.target.value
         setForm(userInput)
         // setSelectedMeme(event.target.value)
