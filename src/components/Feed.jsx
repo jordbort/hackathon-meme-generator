@@ -23,23 +23,24 @@ function Feed(props) {
 
     useEffect(() => {
         getPosts()
-    },[])
+    }, [])
 
     return (
         // <div className='meme-editor'>
-                    // <div className='meme-container'>
-                        posts.map(post => {
-                            return (
-                                <div className='meme-editor'>
-                                <div className="meme-container">
-                                <img src={post.image} />
-                                <h1 className='top-text'>{post.topText}</h1>
-                                </div>
-                                </div>
-                            )
-                        })
-                    // </div>
-                // </div>
+        // <div className='meme-container'>
+        posts.map(post => {
+            return (
+                <div className='meme-editor'>
+                    <div className="meme-container">
+                        <img src={post.image} />
+                        <h1 className='top-text'>{post.topText}</h1>
+                        <h1 className='top-text'>{post.bottomText}</h1>
+                    </div>
+                </div>
+            )
+        })
+        // </div>
+        // </div>
     )
 }
 
