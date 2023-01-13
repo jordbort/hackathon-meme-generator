@@ -4,7 +4,7 @@ import CreatePost from "../pages/CreatePost"
 function Home(props) {
     return (
         <>
-        <CreatePost />
+        {/* <CreatePost /> */}
         <Feed />
         </>
     )
