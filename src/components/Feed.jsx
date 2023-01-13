@@ -34,7 +34,7 @@ function Feed(props) {
                     <div className="meme-container">
                         <img src={post.image} />
                         <h1 className='top-text'>{post.topText}</h1>
-                        <h1 className='top-text'>{post.bottomText}</h1>
+                        <h1 className='bottom-text'>{post.bottomText}</h1>
                     </div>
                 </div>
             )
