@@ -10,7 +10,7 @@ code {
 }
 
 header img {
-    width: 100%;
+    width: auto;
 }
 
 .meme-editor {
@@ -44,4 +44,13 @@ header img {
 
 .bottom-text {
     bottom: 0;
+}
+
+@media (orientation: portrait) {
+    header img {
+        width: 100%;
+    }
+    .meme-editor {
+        width: 100%;
+    }
 }
